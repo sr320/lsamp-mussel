@@ -1,0 +1,75 @@
+Roberts Mentoring Plan
+
+Week 1 (June 20)
+Themes:  Orientation 
+Goals 
+Learn what others in the lab are working on 
+Understand logistics 
+Tasks
+Attend lab meeting
+Set-up lab notebook
+Get on lab calendar and lab slack
+Schedule safety sessions
+Review Lab handbook, specifically onboarding.
+
+Week 2
+Themes: Design Experiment
+Goals: Understand big picture of what research will look like
+Tasks
+Read select papers
+Meet with Mentor to go over details
+Write up research plan in notebook
+
+Week 3
+Theme: Start experiment
+Goals: Get mussels in experimental system
+Tasks
+Aquire mussels
+Set up mussels in system
+Read about sample collection
+Write up sample collection plan in notebook.
+
+Week 4 
+Theme: Environmental stressor
+Goal: Expose mussel to stressors
+Tasks
+Expose mussels to conditions determined in Week 2 
+Sample mussels after 24 hours.
+
+Week 5
+Theme: Sampling
+Goal: Complete sampling
+Tasks
+Sample mussels
+Start RNA extraction
+Plan out cDNA synthesis protocol
+
+Week 6
+Theme: Sample Processing 
+Goal: Prep for qPCR
+Tasks
+Finish RNA extractions
+Perform cDNA synthesis
+Plan out qPCR protocol
+
+Week 7 
+Theme: Gene Expression 
+Goal: Run qPCR
+Tasks
+Run qPCR
+Establish initial findings
+Write Abstract
+
+Week 8 (Abstract DUE)
+Theme: Final Stretch
+Goal: Developing final products
+Tasks:
+Finish up any final analysis
+Start Poster 
+Read relevant papers with similar efforts
+
+Week 9 (Poster Presentation)
+Theme: Presenting
+Goal: Have clear picture of meaning of results
+Tasks:
+Give practice presentation
