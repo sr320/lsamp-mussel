@@ -11,3 +11,4 @@ Evaluate the genetic response of *Mytilus trossulus* to acute temperature shock.
 4. **07/13/2022** - End of temperature treatment (24h). Gill, mantle, and foot tisuee collected and flash forzen from T1-30. Somatic and gonad tissue seperated from T31-40 and dried in 55C oven for calculation of condition (CI) and gonad index (GI). <br/>
 
 # Documents
+1. Morphometrics [dataset](https://docs.google.com/spreadsheets/d/1AHncBwgaCnj5UzXMNSpwvFtoY7nqNFfk1sdAHQv8VxM/edit?usp=sharing)
