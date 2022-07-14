@@ -12,3 +12,4 @@ Evaluate the genetic response of *Mytilus trossulus* to acute temperature shock.
 
 # Documents
 1. Morphometrics [dataset](https://docs.google.com/spreadsheets/d/1AHncBwgaCnj5UzXMNSpwvFtoY7nqNFfk1sdAHQv8VxM/edit?usp=sharing)
+2. Temperature [data](https://github.com/sr320/lsamp-mussel/tree/main/treatment_conditions)
