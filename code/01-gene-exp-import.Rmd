@@ -63,3 +63,27 @@ exp %>%
   geom_violin() + 
   labs(x ="", y = "sHSP24 expression", legend.title="") 
 ```
+```{r}
+write_delim(exp, "../output/expression_01.tab", delim = "\t")
+```
+
+
+
+```{r}
+exp_long <- read.delim("../data/exp_longer.txt", sep = "\t")
+```
+
+```{r}
+exp_long %>% 
+  ggplot(aes(x = treatment, y = gene_norm)) + 
+  geom_boxplot() + 
+  geom_jitter(shape=1, position=position_jitter(0.1)) +
+  facet_wrap(~gene)
+```
+
+```{r}
+exp_long <- exp_long %>%
+  mutate(gene_norm = log10(exp))
+```
+
+
