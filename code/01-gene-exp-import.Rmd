@@ -1,0 +1,14 @@
+---
+title: "01-gene-exp-import"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+exp <- read.delim("../data/myt-gene-exp.csv")
+```
+
