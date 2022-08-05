@@ -9,6 +9,57 @@ library(tidyverse)
 ```
 
 ```{r}
-exp <- read.delim("../data/myt-gene-exp.csv")
+exp <- read.delim("../data/myt-gene-exp.csv", sep = ",")
 ```
 
+```{r}
+exp <- drop_na(exp)
+```
+
+
+```{r}
+ggplot(exp, aes(x = Size.L, y = Size.H, color = treatment)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+```{r}
+exp %>% 
+  group_by(treatment) %>%
+  summarise(sem = sd(GADD45.converted)/sqrt(n()),
+            GADD45.converted = mean(GADD45.converted)) %>%
+  ggplot(aes(x = treatment, y = GADD45.converted)) + 
+  geom_col(position = "dodge",
+           width = 0.4) + 
+  geom_errorbar(aes(ymin=GADD45.converted-sem, ymax=GADD45.converted+sem), width=.4,
+                position = position_dodge()) +
+  labs(x ="", y = "GADD45 expression", legend.title="") 
+```
+
+
+```{r}
+exp %>% 
+  group_by(treatment) %>%
+  summarise(sem = sd(sHSP24.converted)/sqrt(n()),
+            sHSP24.converted = mean(sHSP24.converted)) %>%
+  ggplot(aes(x = treatment, y = sHSP24.converted)) + 
+  geom_col(position = "dodge",
+           width = 0.4) + 
+  geom_errorbar(aes(ymin=sHSP24.converted-sem, ymax=sHSP24.converted+sem), width=.4,
+                position = position_dodge()) +
+  labs(x ="", y = "sHSP24 expression", legend.title="") 
+```
+```{r}
+exp %>% 
+  ggplot(aes(x = treatment, y = sHSP24.converted)) + 
+  geom_boxplot() + 
+  geom_jitter(shape=16, position=position_jitter(0.2)) +
+  labs(x ="", y = "sHSP24 expression", legend.title="") 
+```
+```{r}
+exp %>% 
+  ggplot(aes(x = treatment, y = sHSP24.converted)) + 
+  geom_violin() + 
+  labs(x ="", y = "sHSP24 expression", legend.title="") 
+```
