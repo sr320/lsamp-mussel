@@ -52,10 +52,10 @@ exp %>%
 ```
 ```{r}
 exp %>% 
-  ggplot(aes(x = treatment, y = sHSP24.converted)) + 
+  ggplot(aes(x = treatment, y = HSP90.converted)) + 
   geom_boxplot() + 
   geom_jitter(shape=16, position=position_jitter(0.2)) +
-  labs(x ="", y = "sHSP24 expression", legend.title="") 
+  labs(x ="", y = "hsp90 expression", legend.title="") 
 ```
 ```{r}
 exp %>% 
@@ -75,15 +75,46 @@ exp_long <- read.delim("../data/exp_longer.txt", sep = "\t")
 
 ```{r}
 exp_long %>% 
-  ggplot(aes(x = treatment, y = gene_norm)) + 
+  ggplot(aes(x = treatment, y = gene_norm, fill = treatment)) + 
+  geom_boxplot() + 
+  geom_jitter(shape=1, position=position_jitter(0.2)) +
+  facet_grid(~gene) +
+  scale_fill_manual(values=c("#bbeeee", "#ffa500")) +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+                      axis.ticks.x=element_blank()) +
+  ylab("gene expression (log10 arbitrary)")
+```
+
+```{r}
+exp_long %>% 
+  ggplot(aes(x = treatment, y = exp)) + 
   geom_boxplot() + 
   geom_jitter(shape=1, position=position_jitter(0.1)) +
-  facet_wrap(~gene)
+  facet_grid(~gene)
 ```
+
+
+
 
 ```{r}
 exp_long <- exp_long %>%
   mutate(gene_norm = log10(exp))
 ```
 
+```{r}
+t.test(exp$GADD45.converted~exp$treatment)
+```
+```{r}
+t.test(exp$sHSP24.converted~exp$treatment)
+```
+
+
+
+```{r}
+t.test(exp$HSC70.converted~exp$treatment)
+```
+```{r}
+summary(glm(exp$HSC70.converted~exp$treatment))
+
+```
 
