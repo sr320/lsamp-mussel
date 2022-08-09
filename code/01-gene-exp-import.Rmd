@@ -3,10 +3,13 @@ title: "01-gene-exp-import"
 output: html_document
 ---
 
-
+Loading programs
 ```{r}
 library(tidyverse)
 ```
+
+
+Load in data
 
 ```{r}
 exp <- read.delim("../data/myt-gene-exp.csv", sep = ",")
@@ -69,9 +72,25 @@ write_delim(exp, "../output/expression_01.tab", delim = "\t")
 
 
 
+
 ```{r}
-exp_long <- read.delim("../data/exp_longer.txt", sep = "\t")
+
+exp_long <- read_delim("../data/exp_longer.txt", delim = "\t")
+
 ```
+
+
+
+```{r}
+exp_long %>%
+  ggplot(aes(x = treatment, y = exp)) +
+  geom_boxplot() +
+  facet_grid(~gene)
+
+```
+
+
+
 
 ```{r}
 exp_long %>% 
