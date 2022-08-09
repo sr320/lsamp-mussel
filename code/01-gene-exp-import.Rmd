@@ -73,6 +73,13 @@ write_delim(exp, "../output/expression_01.tab", delim = "\t")
 exp_long <- read.delim("../data/exp_longer.txt", sep = "\t")
 ```
 
+
+```{r log-transform-exp}
+exp_long <- exp_long %>%
+  mutate(gene_norm = log10(exp))
+```
+
+
 ```{r}
 exp_long %>% 
   ggplot(aes(x = treatment, y = gene_norm, fill = treatment)) + 
@@ -85,6 +92,29 @@ exp_long %>%
   ylab("gene expression (log10 arbitrary)")
 ```
 
+```{r write-boxplots-to-file}
+
+# Specify SVG image name/location.
+svg("../figures/log10-exp-boxplots.svg")
+
+exp_long %>% 
+  ggplot(aes(x = treatment, y = gene_norm, fill = treatment)) + 
+  geom_boxplot() + 
+  geom_jitter(shape=1, position=position_jitter(0.2)) +
+  facet_grid(~gene) +
+  scale_fill_manual(values=c("#bbeeee", "#ffa500")) +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+                      axis.ticks.x=element_blank()) +
+  ylab("gene expression (log10 arbitrary)")
+
+# Close image device
+dev.off()
+
+```
+
+
+
+
 ```{r}
 exp_long %>% 
   ggplot(aes(x = treatment, y = exp)) + 
@@ -95,11 +125,6 @@ exp_long %>%
 
 
 
-
-```{r}
-exp_long <- exp_long %>%
-  mutate(gene_norm = log10(exp))
-```
 
 ```{r}
 t.test(exp$GADD45.converted~exp$treatment)
